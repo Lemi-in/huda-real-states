@@ -78,6 +78,9 @@
     z-index: 9999;
     background-color: rgba(0, 85, 90, 1);
 }
+.bg-light{
+    background-color: rgb(243, 243, 243) !important ;
+}
 
 .nav-bar.sticky-top {
    
@@ -112,7 +115,9 @@
     text-transform: uppercase;
     outline: none;
 }
-
+ .text-primay{
+    color: rgb(241, 205, 0) !important;
+}
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
     color: yellow;
@@ -239,28 +244,39 @@
     height: 100%;
     background: var(--primary);
     transform: skew(20deg);
-    z-index: 1;
+    z-index: -1;
 }
+
 
 
 /*** Category ***/
 .cat-item div {
-    background:rgba(0, 85, 90, 1);
+    background:;
     border: 1px dashed rgba(0, 85, 90, 1);
     transition: .5s;
 }
 
 .cat-item:hover div {
-    background: var(--primary);
+  /***  background: var(--primary);***/
     border-color: transparent;
+    pointer-events: none !important;
+    cursor: default !important;
+}
+.col-lg-3 a{
+    pointer-events: none !important;
+    cursor: default !important;
 }
 
 .cat-item div * {
     transition: .5s;
+    pointer-events: none !important;
+    cursor: default !important;
 }
 
 .cat-item:hover div * {
-    color: #FFFFFF !important;
+    
+    pointer-events: none !important;
+    cursor: default !important;
 }
 
 
