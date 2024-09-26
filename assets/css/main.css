@@ -199,7 +199,7 @@ h6 {
 
 .header .branding {
   min-height: 60px;
-  padding: 10px 0;;
+  padding: 0.1px 0;;
 }
 
 .header .logo {
@@ -255,6 +255,7 @@ h6 {
   .navmenu>ul>li {
     white-space: nowrap;
     padding: 15px 14px;
+    font-family: Arial, Helvetica, sans-serif !important;
   }
 
   .navmenu>ul>li:last-child {
@@ -807,7 +808,7 @@ section,
   height: 90vh;
   position: relative;
   z-index: 1;
-  animation: slideBackground 50s infinite;
+  animation: slideBackground 10s infinite;
   overflow: hidden;
 }
 
@@ -850,7 +851,7 @@ section,
 
 .overlay {
   font-weight: 700;
-  font-size: 50px;
+  font-size: 3.4em !important ;
   background-image: linear-gradient(170deg, rgba(0, 85, 90, 0.7), rgba(0, 85, 90, 0.7), rgb(193, 193, 4), yellow);
   background-clip: text;
   -webkit-background-clip: text;
