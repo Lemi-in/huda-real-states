@@ -66,17 +66,28 @@
     font-weight: normal;
     border-radius: 50px;
 }
+input:focus ,textarea:focus{
+    border-color:rgba(0, 85, 90, 1) !important;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 85, 90, 1) !important; 
+}
+.py-3:hover{
+    opacity: 0.9 !important;
+}
+
 
 
 /*** Navbar ***/
 
 .nav-bar {
     position: relative;
-    margin-top: 45px;
+    
+    margin-top: 5px;
     padding: 0 3rem;
     transition: .5s;
     z-index: 9999;
     background-color: rgba(0, 85, 90, 1);
+    
 }
 .bg-light{
     background-color: rgb(243, 243, 243) !important ;
