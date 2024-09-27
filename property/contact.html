@@ -198,7 +198,7 @@ tabindex="0"></iframe>
         
         <p id="successMessage" style="display: none; color: green; font-weight: bold; margin-top: 20px;">Thank you! Your message has been sent.</p>
         
-      </form>
+    </form>
       
       <script>
         document.getElementById('contactForm').addEventListener('submit', function(event) {
@@ -264,7 +264,7 @@ Contact Us directly for more information.
                         <div class="icon me-3" style="width: 45px; height: 45px;">
                             <i class="fa fa-envelope text-white"></i>
                         </div>
-                        <span>hudaengineeringrealestate@gmail.com</span>
+                        <span class="eml">hudaengineeringrealestate@gmail.com</span>
                         </div>
                         </div>
                         </div>
@@ -290,7 +290,15 @@ Contact Us directly for more information.
                         </div>
                         </div>
                         </div>
-                    
+
+                        <style>
+                            @media (max-width: 450px) {
+                              .eml{
+                                  font-size: 14px;
+                                  overflow-wrap: anywhere;
+                              }
+                            }
+                        </style>
 
                    
 
