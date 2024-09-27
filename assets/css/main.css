@@ -5,7 +5,7 @@
 }
 
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --background-color: #F8F8F8; /* Background color for the entire website, including individual sections */
   --default-color: #222222; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #172a28; /* Color for headings, subheadings and title throughout the website */
   --accent-color: rgba(0, 85, 90, 1); /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
@@ -102,17 +102,36 @@ h6 {
 }
 
 
+
+
+
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
-.header {
+/* .header {
   --background-color: rgba(0, 85, 90, 1);
   --heading-color: #ffffff;
   color: var(--default-color);
   transition: all 0.5s;
   z-index: 997;
   background-color: var(--background-color);
-  /* height: 50px; */
+
+} */
+
+/* Make the header transparent and positioned on top of the hero section */
+.header {
+  background-color: rgba(0, 85, 90, 1); 
+  position: absolute; /* Ensure the header stays on top of the hero section */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Higher z-index than hero section to make sure it stays on top */
+  transition: background-color 0.5s ease;
+}
+
+/* Optional: Make the header opaque when scrolling */
+.header.scrolled {
+  background-color: rgba(0, 85, 90, 0.8); /* Change to opaque on scroll */
 }
 
 .header .topbar {
@@ -802,41 +821,92 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 90vh;
   position: relative;
-  z-index: 1;
-  animation: slideBackground 10s infinite;
+  height: 100vh; /* Full viewport height */
+  width: 100%;
   overflow: hidden;
+  background-color: transparent;
+  z-index: 1; /* Ensure it's behind the header */
 }
 
-.hero::before {
+.slider-container {
+  width: 100%;
+  /* height: 100%; */
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-images {
+  display: flex;
+  transition: transform 5s;
+  width: 100%;
+  height: 100vh;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+  position: relative;
+}
+.slide::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* background: rgba(0, 0, 0, 0.5); Dark overlay (adjust transparency here) */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
   z-index: 2;
 }
 
-@keyframes slideBackground {
-  0% { background-image: url('../img/homeImage1.jpg'); }
-  16% { background-image: url('../img/homeImage2.jpg'); }
-  33% { background-image: url('../img/homeImage3.jpg'); }
-  50% { background-image: url('../img/homeImage4.jpg'); }
-  66% { background-image: url('../img/homeImage5.jpg'); }
-  83% { background-image: url('../img/homeImage6.jpg'); }
-  100% { background-image: url('../img/homeImage1.jpg'); }
+.overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #FFD700; /* Gold color */
+  font-size: 28px;
+  font-weight: bold;
+  z-index: 3;
+  padding-bottom: 200px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional shadow for better contrast */
 }
+
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+
+/* .overlay {
+  /* color: white;
+  font-size: 28px;
+  font-weight: bold;
+  z-index: 3;
+} */ 
+
 
 .hero .container {
   position: relative;
-  z-index: 3; /* Ensure content is above the overlay */
-}
+  z-index: 3; 
+} 
 
 .hero p {
   font-size: 45px;
@@ -849,14 +919,14 @@ section,
   color: var(--conrast-color);
 }
 
-.overlay {
+/* .overlay {
   font-weight: 700;
   font-size: 3.4em !important ;
   background-image: linear-gradient(170deg, rgba(0, 85, 90, 0.7), rgba(0, 85, 90, 0.7), rgb(193, 193, 4), yellow);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
+} */
 
 .hero .btn-get-started {
   color: white;

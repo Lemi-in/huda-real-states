@@ -42,48 +42,48 @@
   <link href="assets/css/main.css" rel="stylesheet">
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const images = [
-        'assets/img/homeImage1.jpg',
-        'assets/img/homeImage2.jpg',
-        'assets/img/homeImage3.jpg',
-        'assets/img/homeImage4.jpg',
-        'assets/img/homeImage5.jpg',
-        'assets/img/homeImage6.jpg'
-      ];
-  
-      function shuffle(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
+      const totalSlides = document.querySelectorAll('.slide').length;
+      const slider = document.querySelector('.slider-images');
+      let currentIndex = 0;
+    
+      function showSlide(index) {
+        // Calculate how much to move the slider (each slide is 100% of the container width)
+        const offset = -index * 100;
+        slider.style.transform = `translateX(${offset}%)`;
       }
-  
-      const shuffledImages = shuffle(images);
-  
-      // Apply the shuffled images to the CSS animation
-      const keyframes = `
-        @keyframes changeBackground {
-          0% { background-image: url('${shuffledImages[0]}'); }
-          16% { background-image: url('${shuffledImages[1]}'); }
-          33% { background-image: url('${shuffledImages[2]}'); }
-          50% { background-image: url('${shuffledImages[3]}'); }
-          66% { background-image: url('${shuffledImages[4]}'); }
-          83% { background-image: url('${shuffledImages[5]}'); }
-          100% { background-image: url('${shuffledImages[0]}'); }
-        }
-      `;
-  
-      const styleSheet = document.createElement('style');
-      styleSheet.type = 'text/css';
-      styleSheet.innerText = keyframes;
-      document.head.appendChild(styleSheet);
+    
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        showSlide(currentIndex);
+      }
+    
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        showSlide(currentIndex);
+      }
+    
+      // Automatically move to the next slide every 3 seconds
+      let slideInterval = setInterval(nextSlide, 5000);
+    
+      // Event listeners for manual navigation
+      document.querySelector('.next').addEventListener('click', function() {
+        nextSlide();
+        clearInterval(slideInterval); // Stop automatic sliding temporarily
+        slideInterval = setInterval(nextSlide, 5000); // Restart automatic sliding
+      });
+    
+      document.querySelector('.prev').addEventListener('click', function() {
+        prevSlide();
+        clearInterval(slideInterval); // Stop automatic sliding temporarily
+        slideInterval = setInterval(nextSlide, 5000); // Restart automatic sliding
+      });
     });
-  </script>
+    </script>
+    
+    
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
   <script>
-    // Initialize AOS
     AOS.init();
 </script>
 
@@ -134,11 +134,10 @@
 
     <div class="branding d-flex align-items-cente">
 
-      <div class="container position-relative d-flex align-items-center justify-content-between">
+      <div class="container position-relative d-flex align-items-center justify-content-between" >
+         <!-- position-relative d-flex align-items-center justify-content-between"  -->
         <a href="index.html" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
           <img  style="width: 76px; height: 75px;border-radius: 0px;"      src="assets/img/logo.jpg" alt="" >
-          <!-- <h1 class="sitename">Huda</h1> -->
           <span>.</span>
         </a>
 
@@ -148,7 +147,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#real">Services</a></li>
             <li><a href="property/index.html">Property</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="property/contact.html">Contact</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
@@ -159,22 +158,35 @@
 
   <main class="main">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section accent-background">
-
-      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-5 justify-content-between">
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <p class="overlay">Trustworthy Real Estate Developer</p>
-            <div class="d-flex">
-              <a href="#about" class="btn-get-started">Get Started</a>
-            </div>
-          </div>
-          <div class="col-lg-5 order-1 order-lg-2">
-          </div>
-        </div>
+<!-- Hero Section -->
+<section id="hero" class="hero section accent-background">
+  <button class="prev">❮</button>
+  <div class="slider-container">
+    <div class="slider-images">
+      <div class="slide" style="background-image: url('assets/img/HomePage/homePage1.jpg');">
+        <p class="overlay">Trustworthy Real Estate Developer</p>
       </div>
-    </section><!-- /Hero Section -->
+      <div class="slide" style="background-image: url('assets/img/HomePage/homePage2.jpg');">
+        <p class="overlay">Discover Your Dream Home with Us</p>
+      </div>
+      <div class="slide" style="background-image: url('assets/img/HomePage/homePage3.jpg');">
+        <p class="overlay">Reliable Housing Solutions</p>
+      </div>
+      <div class="slide" style="background-image: url('assets/img/HomePage/homePage4.jpg');">
+        <p class="overlay">Building the Future of Living</p>
+      </div>
+      <div class="slide" style="background-image: url('assets/img/HomePage/homePage5.jpg');">
+        <p class="overlay">Luxury Homes at Affordable Prices</p>
+      </div>
+      <div class="slide" style="background-image: url('assets/img/HomePage/homePage6.jpg');">
+        <p class="overlay">Your Satisfaction, Our Priority</p>
+      </div>
+    </div>
+  </div>
+  <button class="next">❯</button>
+</section>
+
+
         
     <div class="explore" data-aos="fade-up">
     
@@ -204,8 +216,9 @@
                     Bole Bulbula offers a prime location with easy access to amenities and stylish apartments designed for comfort and convenience.
                     
                 </div>
+                <br>
                 <div class="button" >
-                <a href="property.html">
+                <a href="property/index.html">
                   <button>Learn More ></button>
                 </a>
                 </div>
@@ -221,16 +234,18 @@
             Bole 24 Site
           </div>
           <div class="site2-explain">
-            Bole Hayarat is a prime location in Addis Ababa near AdeyAbaba International Stadium 
+                Bole Hayarat is a prime location in Addis Ababa near AdeyAbaba International Stadium 
             surrounded by green space offering a modern and luxurious lifestyle.
             <br><br>
             With its beautiful exterior and interior design,Bole Hayarat stands out among the city's residential developments.
           </div>
+          <br>
           <div class="button">
-            <a href="property.html">
+            <a href="property/index.html">
               <button>Learn More ></button>
             </a>
           </div>
+          <br>
         </div>
         <div class="hayaratimg">
           <div class="image2">
@@ -242,7 +257,7 @@
         </div>
       </div>
       <div class="lo-button" data-aos="fade-up">
-        <a href="property.html">
+        <a href="property/index.html">
             <button class="small-button">Explore more ></button>
         </a>
     </div>
@@ -407,7 +422,7 @@
               <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox play-btn"></a> -->
               <h3 style="color: gold" >Call To Action</h3>
               <p style="color: yellow">Contact us today to schedule a consultation and learn more about how Huda Real Estate can help you achieve your real estate goals.</p>
-              <a class="cta-btn" href="#contact">Contact us</a>
+              <a class="cta-btn" href="property/contact.html">Contact us</a>
             </div>
           </div>
         </div>
@@ -620,7 +635,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#real">Services</a></li>
             <li><a href="property/index.html">Property</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="property/contact.html">Contact</a></li>
           </ul>
         </div>
 

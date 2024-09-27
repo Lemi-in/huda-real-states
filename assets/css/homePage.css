@@ -242,6 +242,17 @@
         padding: 3px 6px; /* Smaller padding */
     }
 }
+ .site-explain{
+  margin-left: 10px;
+  /* font-size: 15px; */
+ }
+ /* .site2-explain{
+  font-size: 15px;
+ } */
+  .hayarat-expl{
+    margin-top: -100px;
+    margin-left: 10px;
+  }
   .lo-button {
     text-align: center;
     margin-top: 50px;
