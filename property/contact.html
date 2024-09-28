@@ -180,37 +180,56 @@ tabindex="0"></iframe>
 <div  class="col-md-6">
 <div class="wow fadeInUp" data-wow-delay="0.5s">
 
-    <form>
-        <div class="row g-3">
-            <div class="col-md-6">
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                    <label for="name">Your Name</label>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-floating">
-                    <input type="email" class="form-control" id="email" placeholder="Your Email">
-                    <label for="email">Your Email</label>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="subject" placeholder="Subject">
-                    <label for="subject">Subject</label>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
-                    <label for="message">Message</label>
-                </div>
-            </div>
-            <div class="col-12">
-                <button style="background-color:  rgba(0, 85, 90, 1);"      class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-            </div>
-        </div>
-      </form>
+    <form id="contactForm" action="https://formspree.io/f/xyzgrevl" method="POST" style="max-width: 500px; margin: auto; padding: 20px; background-color: #f8f8f8; border-radius: 8px; box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);">
+  
+        <label style="display: block; margin-bottom: 10px; font-size: 16px; font-weight: bold;">
+          Your email:
+          <input id="email" type="email" name="email" style="width: 100%; padding: 10px; margin-top: 5px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px;" required>
+        </label>
+        
+        <label style="display: block; margin-bottom: 20px; font-size: 16px; font-weight: bold;">
+          Your message:
+          <textarea id="message" name="message" rows="4" style="width: 100%; padding: 10px; margin-top: 5px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px;" required></textarea>
+        </label>
+        
+        <button type="submit" style="background-color: #00555a; color: white; font-size: 16px; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">
+          Send
+        </button>
+        
+        <p id="successMessage" style="display: none; color: green; font-weight: bold; margin-top: 20px;">Thank you! Your message has been sent.</p>
+        
+    </form>
+      
+      <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent default form submission
+      
+          const form = event.target;
+          
+          // Send the form data via Formspree
+          fetch(form.action, {
+            method: form.method,
+            body: new FormData(form),
+            headers: {
+              'Accept': 'application/json'
+            }
+          }).then(response => {
+            if (response.ok) {
+              // Show success message
+              document.getElementById('successMessage').style.display = 'block';
+      
+              // Clear the form
+              form.reset();
+            } else {
+              alert('There was an error submitting the form. Please try again.');
+            }
+          }).catch(error => {
+            alert('There was an error submitting the form. Please try again.');
+          });
+        });
+      </script>
+      
+      
 
 
 
@@ -245,7 +264,7 @@ Contact Us directly for more information.
                         <div class="icon me-3" style="width: 45px; height: 45px;">
                             <i class="fa fa-envelope text-white"></i>
                         </div>
-                        <span>hudaengineeringrealestate@gmail.com</span>
+                        <span class="eml">hudaengineeringrealestate@gmail.com</span>
                         </div>
                         </div>
                         </div>
@@ -271,7 +290,15 @@ Contact Us directly for more information.
                         </div>
                         </div>
                         </div>
-                    
+
+                        <style>
+                            @media (max-width: 450px) {
+                              .eml{
+                                  font-size: 14px;
+                                  overflow-wrap: anywhere;
+                              }
+                            }
+                        </style>
 
                    
 
