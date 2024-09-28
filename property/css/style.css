@@ -4,7 +4,7 @@
     --secondary:rgba(0, 85, 90, 1);
     --light: rgba(0, 85, 90, 1);
     --dark:rgba(0, 85, 90, 1);
-    
+    font-family: playfair display, sans-serif !important;
 }
 
 .back-to-top {
@@ -433,16 +433,17 @@ input:focus ,textarea:focus{
 
 .footer .btn.btn-link::before {
     position: relative;
-    content: "\f105";
+  
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     margin-right: 10px;
 }
 
-.footer .btn.btn-link:hover {
-    letter-spacing: 1px;
-    box-shadow: none;
+.col-lg-3 .btn-link:hover {
+    color: lightgrey !important; /* Change color on hover */
+    cursor: pointer !important;
 }
+
 
 .footer .form-control {
     border-color: rgba(255,255,255,0.5);
@@ -471,4 +472,12 @@ input:focus ,textarea:focus{
 }
 .d-flex .pt-2 a{
     color: white !important;
+}
+.d-flex .pt-2 a :hover{
+    color:white !important;
+    cursor: pointer !important;
+}
+.col-lg-3.col-md-6 a :hover{
+color: white !important ;
+cursor: pointer !important;
 }
