@@ -179,7 +179,9 @@ input:focus ,textarea:focus{
         opacity: 1;
     }
 }
-
+.dropdown-item:active{
+background-color: rgb(1, 104, 110) !important;
+}
 
 /*** Header ***/
 @media (min-width: 992px) {
@@ -480,4 +482,75 @@ input:focus ,textarea:focus{
 .col-lg-3.col-md-6 a :hover{
 color: white !important ;
 cursor: pointer !important;
+}
+  /*  from landing */
+  footer .footer-about .logo span {
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: play fair;
+}
+.footer .footer-about p {
+    font-size: 14px;
+    font-family: var(--heading-font);
+    color: white;
+    margin-top: 10px;
+    font-family: play fair;
+    
+}
+.footer{
+    padding-top: 3em;
+    font-family: play fair;
+}
+
+.footer .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgb(181, 181, 181) ;
+    font-size: 19px;
+    color:rgb(181, 181, 181) ;
+    
+
+    
+    transition: 0.3s;
+}
+.mt-4 a:hover{
+    color: white;
+}
+.mt-4 a {
+margin-right: 30px;
+}
+.footer h4 {
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 12px;
+    color: white;
+    font-family: play fair;
+}
+ul,li{
+    list-style-type: none;
+    margin-bottom: 1rem;
+    font-size: 15px;
+}
+.footer .footer-links ul a {
+    color:rgb(181, 181, 181);
+
+    display : inline-block;
+    line-height: 1;
+}
+.footer .footer-links ul a:hover{
+    color: white;
+}
+.footer .footer-links {
+    margin-bottom: 30px;
+}
+.text-md-start{
+    color: white;
+    font-size: 14px;
 }
